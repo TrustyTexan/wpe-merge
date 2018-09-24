@@ -30,4 +30,16 @@ describe('requestRowData', () => {
             assert.equal(e.message, 'There was no status data found for 3');
         }
     });
+
+    it('should throw proper error if there data response is not valid JSON', async () => {
+        nock('http://interview.wpengine.io')
+            .get('/v1/accounts/3')
+            .reply(200, '345}');
+
+        try {
+            const resp = await requestRowData('3');
+        } catch (e) {
+            assert.equal(e.message, 'Data response for 3 was not valid JSON.');
+        }
+    });
 });

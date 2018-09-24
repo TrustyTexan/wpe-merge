@@ -9,7 +9,12 @@ module.exports = function (id) {
                     data += chunk;
                 })
                 .on('end', () => {
-                    const jsonData = JSON.parse(data);
+                    let jsonData;
+                    try {
+                        jsonData = JSON.parse(data);
+                    } catch(e) {
+                        reject(new Error(`Data response for ${id} was not valid JSON.`));
+                    }
                     if (jsonData && jsonData.detail === 'Not found.') {
                         reject(new Error(`There was no status data found for ${id}`));
                     }
