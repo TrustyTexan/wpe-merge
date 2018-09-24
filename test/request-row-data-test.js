@@ -26,6 +26,7 @@ describe('requestRowData', () => {
 
         try {
             const resp = await requestRowData('3');
+            assert(false);
         } catch(e) {
             assert.equal(e.message, 'There was no status data found for 3');
         }
@@ -38,6 +39,7 @@ describe('requestRowData', () => {
 
         try {
             const resp = await requestRowData('3');
+            assert(false);
         } catch (e) {
             assert.equal(e.message, 'Data response for 3 was not valid JSON.');
         }
