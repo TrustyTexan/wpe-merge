@@ -9,9 +9,9 @@ else
     if [[ $? != 0 ]] ; then
         echo "Please install npm version 5 or higher."
     else
+        cd `dirname $0` > /dev/null
         # TODO: consider proper error messaging for network being offline
         npm install --production > "/dev/null" 2>&1
-        cd `dirname $0` > /dev/null
         node ./wpe-merge.js $1 $2
     fi
 fi
