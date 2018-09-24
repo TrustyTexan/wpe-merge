@@ -1,5 +1,5 @@
 const assert = require('assert');
-const generateNewDataRows = require('../generate-new-data-rows');
+const generateNewDataRows = require('../src/generate-new-data-rows');
 
 describe('generateNewDataRows', function () {
     const fileInputData = [

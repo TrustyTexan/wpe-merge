@@ -1,5 +1,5 @@
 const assert = require('assert');
-const requestRowData = require('../request-row-data');
+const requestRowData = require('../src/request-row-data');
 const nock = require('nock');
 const http = require('http');
 

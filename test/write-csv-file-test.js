@@ -1,6 +1,6 @@
 const assert = require('assert');
 const path = require('path');
-const writeCSVFile = require('../write-csv-file');
+const writeCSVFile = require('../src/write-csv-file');
 const fs = require('fs');
 
 describe('writeCSVFile', function () {

@@ -1,6 +1,6 @@
 const assert = require('assert');
 const path = require('path');
-const readInCSV = require('../read-in-csv');
+const readInCSV = require('../src/read-in-csv');
 
 describe('readInCSV', function () {
     it('should throw proper error message if file DNE', async () => {

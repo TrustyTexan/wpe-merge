@@ -1,4 +1,4 @@
-const main = require('./main');
+const main = require('./src/main');
 
 function handleError(e) {
     // TODO: Add logging

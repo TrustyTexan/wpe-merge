@@ -2,11 +2,12 @@ const assert = require('assert');
 const path = require('path');
 const fs = require('fs');
 const nock = require('nock');
-const main = require('../main');
+const main = require('../src/main');
 
 describe('wpe-merge', function () {
     const TEMP_OUTPUT_FILE = 'test-output.csv';
-    const TEMP_OUTPUT_FILE_PATH = path.join(__dirname, '../', TEMP_OUTPUT_FILE)
+    const TEMP_OUTPUT_FILE_PATH = path.join(__dirname, '../', TEMP_OUTPUT_FILE);
+    const INPUT_FILE = '../test/mockFiles/good-data.csv';
 
     nock('http://interview.wpengine.io')
         .get('/v1/accounts/314159')
@@ -51,7 +52,7 @@ describe('wpe-merge', function () {
     });
 
     it('should work!', async () => {
-        process.argv = [null, null, 'test/mockFiles/good-data.csv', TEMP_OUTPUT_FILE];
+        process.argv = [null, null, INPUT_FILE, TEMP_OUTPUT_FILE];
         await main();
         const fileContents = fs.readFileSync(TEMP_OUTPUT_FILE_PATH, { encoding: 'utf-8' });
         assert.equal(
